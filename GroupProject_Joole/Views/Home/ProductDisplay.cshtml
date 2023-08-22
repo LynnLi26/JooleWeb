@@ -1,0 +1,49 @@
+﻿@model List<DAL.Models.Products>
+
+<div id="productDisplay" class="container-fluid proddisplay">
+    @using (Html.BeginForm("Compare", "Home", FormMethod.Post, new { id = "CompareForm" }))
+    {
+        <fieldset>
+            @foreach (var prod in Model)
+            {
+                <div class="card productcard rounded">
+                    <div id="@prod.ProductID" class="prodcardimage rounded">
+                        @if (prod.ProductImage != null)
+                        {
+                            <img src="@prod.ProductImage" class="prodimg card-img-top img-fluid" style="max-width:100%; max-height:100%;"/>
+                        }
+                    </div>
+                    <div class="card-body" style="padding-left: 0.5rem; padding-right: 0.5rem;">
+                        <h5 class="card-title prodtitle" style="text-align: center;"><b>@prod.ProductName</b></h5>
+                        <ul class="prodsum">
+                            @foreach (var prop in prod.PropertyValue)
+                            {
+                                <li style="text-align: center; font-size: 14px; padding: 5px;">@prop.PropertyValue1 <b>@prop.Property.PropertyName</b></li>
+                            }
+                        </ul>
+                        <input type="checkbox" name="CompareList" value="@prod.ProductID" />Select to Compare
+                    </div>
+                </div>
+            }
+        </fieldset>
+        
+    }
+</div>
+
+<script>
+    $('#CompareForm').submit(function () {
+        var count = $('input:checkbox:checked').length;
+        if (count < 2) {
+            alert("Please select at least 2 to compare");
+            return false;
+        }
+    });
+
+    $('.prodcardimage').click(function () {
+        var DetailID = $(this).attr("id");
+        $('#mainbody').load('@Url.Action("Details", "Home")', { DetailID: DetailID });
+            return false;
+        })
+</script>
+
+

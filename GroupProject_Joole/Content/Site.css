@@ -1,0 +1,343 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}*/
+
+#MainPage {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#mainheader{
+    height: 5rem;
+    background-image: linear-gradient(navy, 40%, white);
+    text-align: center;
+    position: relative;
+}
+
+#searchcontainer {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    /*vertical-align: central;*/
+}
+
+#mainbody {
+    height: calc( 100vh - 5rem );
+}
+
+#displayPage {
+    display: table;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+#displayPage > div {
+    display: table-cell;
+}
+
+#filterBar{
+    vertical-align: top;
+    position: absolute;
+    width: 18rem;
+}
+
+.typefilterbox{
+    width: 5rem;
+    height: 100%;
+}
+
+#FilterContainer {
+    width: 18rem;
+    background-color: whitesmoke;
+    margin-left: -5px;
+/*    position:absolute;
+    top: 5rem;
+    height:50%;*/
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /*position: relative;*/
+}
+
+#CheckBoxContainer {
+    width: 18rem;
+    width: 18rem;
+    background-color: whitesmoke;
+    position:relative;
+    margin-left: -5px;
+    height: 50%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#ProductDisplayContainer {
+}
+
+#MainSearch {
+    background-image: linear-gradient(to right, #8360c3, #2ebf91);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    min-height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
+
+.proddisplay {
+    text-align: left;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.productcard {
+    width: 15rem;
+    height: 35rem;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+    margin-bottom: 2rem;
+}
+
+.prodcardimage {
+    width: 100%;
+    height: 15rem;
+    vertical-align: top;
+    position: relative;
+    /*background-color: gray;*/
+}
+
+.prodimg {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    overflow: hidden;
+    max-height: 100%;
+    width: auto;
+}
+
+.prodtitle{
+    margin-bottom: 2rem;
+}
+
+.prodsum {
+    list-style-type: none;
+    padding-left: 0;
+}
+.input {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #e8e8e8;
+    box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5;
+    font-size: large;
+    font-weight: bold;
+    width:20%;
+    height: 20px;
+}
+
+.input:focus {
+    outline-color: white;
+}
+
+button {
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 8px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 13px 19px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+button:after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+button:main, button:focus {
+    user-select: auto;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+button:disabled {
+    cursor: auto;
+}
+
+button:active:after {
+    border-width: 0 0 0px;
+}
+
+button:active {
+    padding-bottom: 10px;
+}
+.centerView {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:100%;
+    text-align:center;
+    /*margin-top: -50px;
+    margin-left: -100px;*/
+    transform: translate(-50%,-50%);
+}
+
+.googleImg {
+    width: 800px;
+    height: 500px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:80px;
+}
+
+.categoryDrop {
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    background-color: #e8e8e8;
+    box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5;
+    width: 8%;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+    font-size: 18px;
+    color: #60666d;
+}
+
+.SubCategoryDrop {
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    background-color: #e8e8e8;
+    box-shadow: 6px 6px 12px #ffffff, -6px -6px 12px #c5c5c5;
+    width: 8%;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+    font-size: 18px;
+    color: #60666d;
+}
+
+.errorMessage{
+    color: red;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.searchIcon {
+    /*display: block;*/
+    /*margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;*/
+    margin-top:-150px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    /*text-align:center;
+    color:aqua;
+    font-size:150px;*/
+    font-size: 150px;
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -3px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: PaleGoldenRod;
+    outline: none;
+    text-align: center;
+}
+
+.icon:hover {
+    font-variation-settings: "wght" 582;
+    letter-spacing: 1px;
+}
+
+.comparedisplay {
+    text-align: left;
+    height: 100%;
+}
+
+.detaildisplay {
+    text-align: center;
+}
+
+.loginIcon {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    top: 10%;
+}

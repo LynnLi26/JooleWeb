@@ -1,0 +1,167 @@
+﻿@model DAL.Models.ModelUser
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+
+<style>
+    /*web background*/
+    body {
+        height: 130vh;
+        width: 100%;
+        background: linear-gradient(#322be0,white);
+    }
+
+    .container {
+        display: table;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .row.well {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    centered columns styles
+    .row-centered {
+        text-align: center;
+    }
+
+    .col-centered {
+        display: inline-block;
+        float: left;
+        text-align: center;
+        margin-right: -4px;
+    }
+
+    P {
+        margin-bottom: 2.5px;
+    }
+    .center {
+        height:100%;
+        display:flew;
+        align-items:center;
+        justify-content:center;
+    }
+    .form-input {
+        width:200px;
+        padding:5px;
+        background:white;
+    }
+    .form-input img {
+        width:100%;
+    }
+
+</style>
+
+
+<div style="height: 100px"></div>
+<div class="navbar navbar-inverse navbar-fixed-top"></div>
+
+<button type="button" onclick="location.href='@Url.Action("Login","Home")'">Back</button>
+
+<div class="container">
+    <div class="row row-centered">
+        <div class="well col-md-11">
+            <h4 align="left">Register as User</h4>
+            <hr />
+            <div class="col-md-11">
+                <div class="d-flex aligns-items-center justify-content-center">
+                    <label>Image Preview</label>
+                </div>
+                <div class="center d-flex aligns-items-center justify-content-center">
+                    <div class="form-input d-flex aligns-items-center justify-content-center">
+                        <div class="preview">
+                            <img id="file-preview" />
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="d-flex aligns-items-center justify-content-center">
+                    <label>Your Profile Pic</label>
+                </div>
+                <div class="d-flex aligns-items-center justify-content-center">
+                    <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                </div>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label float-start" })
+                            <br />
+                        </div>
+                        <div class="col-md-offset-4">
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control float-end" })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <br />
+                        <br />
+
+                        <div class="">
+                            @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "control-label float-start" })
+                            <br />
+                            <div class="col-md-offset-4">
+                                @Html.TextBoxFor(model => model.UserEmail, new { @class = "form-control float-end" })
+                                @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserPassword, htmlAttributes: new { @class = "control-label float-start" })
+                            <br />
+                            <div class="col-md-offset-4">
+                                @Html.PasswordFor(model => model.UserPassword, new { @class = "form-control float-end" })
+                                @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <br />
+   
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserConPassword, htmlAttributes: new { @class = "control-label float-start" })
+                            <br />
+                            <div class="col-md-offset-4">
+                                @Html.PasswordFor(model => model.UserConPassword, new { @class = "form-control float-end" } )
+                                @Html.ValidationMessageFor(model => model.UserConPassword, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+
+                        <br />
+                        <br />
+
+                        <div class="form-group ">
+                            <div class="float-end">
+                                <br />
+                                <button type="submit">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    function showPreview(event) {
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("file-preview");
+        preview.src = src;
+        preview.style.display = "block;"
+    }
+</script>
